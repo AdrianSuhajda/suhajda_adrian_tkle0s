@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/common :: head(title='Payment')">
+</head>
+<body>
+<div th:replace="fragments/common :: header"></div>
+
+<form method="post" action="#" th:action="@{/pay}" th:object="${payment}">
+    <fieldset>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" th:field="*{name}">
+            <br>
+            <label for="cardNumber">Card Number:</label>
+            <input type="number" id="cardNumber" th:field="*{cardNumber}">
+            <br>
+            <label for="expireDate">Expire Date:</label>
+            <input type="number" id="expireDate" th:field="*{expireDate}">
+            <br>
+            <label for="cvc">cvc:</label>
+            <input type="number" id="cvc" th:field="*{cvc}">
+        </div>
+        <div class="submit">
+            <button type="submit" name="save">Pay</button>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>
