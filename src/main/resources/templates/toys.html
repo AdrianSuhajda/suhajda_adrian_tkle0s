@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common :: head(title = 'Dog toys')}">
+</head>
+<body>
+<div id="main">
+    <div th:replace="~{fragments/common :: header}"></div>
+    <div>
+        <h1>KutyaJátékBolt - Toys</h1>
+    </div>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <td>Name</td>
+                <td>Image</td>
+                <td>Description</td>
+                <td>Cost</td>
+                <td>Quantity</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="toy: ${toyList}">
+                <td>
+                    <span th:text="${toy.name}"> Name </span>
+                </td>
+                <td>
+                    <img src="/img/duck.png" alt="toy" style="width: 150px"
+                         th:src="@{${'/img/' + toy.image}}">
+                </td>
+                <td>
+                    <span th:text="${toy.description}"> Description </span>
+                </td>
+                <td>
+                    <span th:text="${toy.cost + ' Ft'}"> Cost </span>
+                </td>
+                <td>
+                    <form action="#" method="get" th:action="@{'/addToCart/{id}'(id=${toy.id})}">
+                        <label>
+                            <input type="number" style="width: 50px" min="1" name="quantity" th:name="quantity">
+                        </label>
+
+                        <button type="submit" th:text="Buy">Buy</button>
+                    </form>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
