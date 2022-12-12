@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/thymeleaf.css"
+          th:href="@{/css/thymeleaf.css}">
+</head>
+<body>
+<div th:fragment="header" class="header" style="display: flex; justify-content: space-between">
+    <div id="menu-wrapper" style="display: flex; align-items: center;">
+        <div class="menu-item">
+            <a th:href="@{/toys}">Toys</a>
+        </div>
+        <div class="menu-item">
+            <a th:href="@{/cart}">Cart</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
